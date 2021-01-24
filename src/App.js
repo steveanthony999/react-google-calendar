@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const Main = styled.main`
   width: 100vw;
@@ -9,6 +10,10 @@ const Main = styled.main`
 `;
 
 function App() {
+  useEffect(() => {
+    console.log(process.env.REACT_APP_GOOGLE_CLIENT_SECRET);
+  }, []);
+
   return (
     <Main>
       <h1>hello world</h1>
