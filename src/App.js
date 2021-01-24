@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Main = styled.main`
   width: 100vw;
@@ -9,14 +9,33 @@ const Main = styled.main`
   align-items: center;
 `;
 
-function App() {
-  useEffect(() => {
-    console.log(process.env.REACT_APP_GOOGLE_CLIENT_SECRET);
-  }, []);
+const Button = styled(motion.button)`
+  width: 260px;
+  height: 100px;
+  background: white;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 35px;
 
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const handleClick = (e) => {
+  console.log('clicked');
+};
+
+function App() {
   return (
     <Main>
-      <h1>hello world</h1>
+      <Button animate={{ y: -3 }} transition={{ duration: 0.52, repeat: Infinity }} onClick={handleClick}>
+        Calendar
+      </Button>
     </Main>
   );
 }
